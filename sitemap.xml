@@ -3,38 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://nocwoods.github.io/tags/blog/</loc>
-    <lastmod>2020-02-22T17:05:34+08:00</lastmod>
+    <loc>https://nocwoods.github.io/tags/git/</loc>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://nocwoods.github.io/post/demo-blog/</loc>
-    <lastmod>2020-02-22T17:05:34+08:00</lastmod>
+    <loc>https://nocwoods.github.io/post/github-pages-blog/</loc>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://nocwoods.github.io/post/</loc>
-    <lastmod>2020-02-22T17:05:34+08:00</lastmod>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://nocwoods.github.io/tags/</loc>
-    <lastmod>2020-02-22T17:05:34+08:00</lastmod>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://nocwoods.github.io/</loc>
-    <lastmod>2020-02-22T17:05:34+08:00</lastmod>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nocwoods.github.io/post/emacs-org-ox-hugo/</loc>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://nocwoods.github.io/tags/hugo/</loc>
-    <lastmod>2020-02-22T17:05:33+08:00</lastmod>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nocwoods.github.io/tags/blog/</loc>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nocwoods.github.io/post/demo-blog/</loc>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://nocwoods.github.io/post/hugo-test-1/</loc>
-    <lastmod>2020-02-22T17:05:33+08:00</lastmod>
+    <lastmod>2020-02-22T17:28:07+08:00</lastmod>
   </url>
   
 </urlset>

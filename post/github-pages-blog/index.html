@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>BLOG | TECHWOODS</title>
+<title>github-pages for blogs | TECHWOODS</title>
 
-<meta property='og:title' content='Tag: BLOG - TECHWOODS'>
-<meta property='og:description' content=''>
-<meta property='og:url' content='https://nocwoods.github.io/tags/blog/'>
+<meta property='og:title' content='github-pages for blogs - TECHWOODS'>
+<meta property='og:description' content='github pages for blogger deployed server, based on hugo.'>
+<meta property='og:url' content='https://nocwoods.github.io/post/github-pages-blog/'>
 <meta property='og:site_name' content='TECHWOODS'>
-<meta property='og:type' content='website'><meta property='og:image' content='https://www.gravatar.com/avatar/0c83f57c786a0b4a39efab23731c7ebc?s=256'><meta property='article:section' content='Tags'><meta property='og:updated_time' content='2020-02-22T17:28:07&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/0c83f57c786a0b4a39efab23731c7ebc?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='GIT'><meta property='article:published_time' content='2020-02-22T17:07:00&#43;08:00'/><meta property='article:modified_time' content='2020-02-22T17:28:07&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
 
 
 <link href="https://nocwoods.github.io/index.xml" rel="alternate" type="application/rss+xml" title="TECHWOODS" />
@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://nocwoods.github.io/tags/blog/">
+<link rel="canonical" href="https://nocwoods.github.io/post/github-pages-blog/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -87,76 +87,111 @@
 </section>
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/git">#GIT</a>
+
+
+
+      
+    </div>
+    <h2 class="subtitle is-6">February 22, 2020</h2>
+    <h1 class="title">github-pages for blogs</h1>
     
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/blog">#BLOG</a>
-
-
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">February 17, 2020</h2>
-      <h1 class="title"><a href="https://nocwoods.github.io/post/demo-blog/">demo of blog</a></h1>
-      <div class="content">
-        short demo on the different elements of blog.
-
-        
-        <a class="button is-link" href="https://nocwoods.github.io/post/demo-blog/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-        
-<a class="subtitle is-6" href="/tags/hugo">#HUGO</a>
-
-
-
-  
-  | <a class="subtitle is-6" href="/tags/blog">#BLOG</a>
-  
-
-        
-      </div>
-      <h2 class="subtitle is-6 date">February 17, 2020</h2>
-      <h1 class="title"><a href="https://nocwoods.github.io/post/hugo-test-1/">Hugo</a></h1>
-      <div class="content">
-        this short summary on hugo setup.
-
-        
-        <a class="button is-link" href="https://nocwoods.github.io/post/hugo-test-1/" style="height:28px">
-          Read more
-        </a>
-        
-      </div>
-    </article>
+    <div class="content">
+      <p>github pages for blogger deployed server, based on hugo.</p>
+<h2 id="github-blog-hugo">github-blog-hugo</h2>
+<ul>
+<li>
+<p>github account apply and initialization</p>
+<ul>
+<li>apply account; and create one initial repo;</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir /var/vobs/blogger/blog
+echo &#34;# nocwoods.github.io&#34; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &#34;first commit&#34;
+git remote add origin https://github.com/nocwoods/nocwoods.github.io.git
+git push -u origin master
+</code></pre></div></li>
+<li>
+<p>clone github pages and test with hugo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">git clone https://github.com/nocwoods/nocwoods.github.io.git
+cd blogger ; cp -r ../base/* . ; rm -rf public/
+git submodule add -b master https://github.com/nocwoods/nocwoods.github.io.git public
+hugo
+cd public/
+git add -A .
+git commit -m &#34;1st version&#34;
+git push origin master
+</code></pre></div></li>
+<li>
+<p>preprocess</p>
+<ul>
+<li>update <code>config.toml</code> file for correct <code>base_url</code></li>
+</ul>
+</li>
+<li>
+<p>postprocess</p>
+<ul>
+<li>in order to automatically git-push,
+it worth to use a shell to run the repeated git-push;</li>
+<li>in order to avoid github push with account/password input everytime,
+it worth to enable SSH-Key or GPG-Key for auth;</li>
+</ul>
+</li>
+<li>
+<p>reference</p>
+<ul>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">hosting-on-github</a></li>
+<li><a href="https://sspai.com/post/54608">github-pages-example</a></li>
+</ul>
+</li>
+</ul>
+      
+      <div class="related">
+</div>
+      
+    </div>
     
   </div>
 </section>
+
+
 <section class="section">
   <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'shortname';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 </section>
+
 
 <section class="section">
   <div class="container has-text-centered">
@@ -197,4 +232,8 @@
 </script>
 </body>
 </html>
+
+
+
+
 

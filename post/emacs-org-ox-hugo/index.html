@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Hugo | TECHWOODS</title>
+<title>emacs-org with ox-hugo | TECHWOODS</title>
 
-<meta property='og:title' content='Hugo - TECHWOODS'>
-<meta property='og:description' content='this short summary on hugo setup.'>
-<meta property='og:url' content='https://nocwoods.github.io/post/hugo-test-1/'>
+<meta property='og:title' content='emacs-org with ox-hugo - TECHWOODS'>
+<meta property='og:description' content='emacs-org mode with ox-hugo export supported.'>
+<meta property='og:url' content='https://nocwoods.github.io/post/emacs-org-ox-hugo/'>
 <meta property='og:site_name' content='TECHWOODS'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/0c83f57c786a0b4a39efab23731c7ebc?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='HUGO'><meta property='article:tag' content='BLOG'><meta property='article:published_time' content='2020-02-17T09:51:00&#43;08:00'/><meta property='article:modified_time' content='2020-02-22T17:28:07&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/0c83f57c786a0b4a39efab23731c7ebc?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='HUGO'><meta property='article:published_time' content='2020-02-22T17:06:00&#43;08:00'/><meta property='article:modified_time' content='2020-02-22T17:28:07&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
 
 
 <link href="https://nocwoods.github.io/index.xml" rel="alternate" type="application/rss+xml" title="TECHWOODS" />
@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://nocwoods.github.io/post/hugo-test-1/">
+<link rel="canonical" href="https://nocwoods.github.io/post/emacs-org-ox-hugo/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -94,125 +94,114 @@
 
 
 
-  
-  | <a class="subtitle is-6" href="/tags/blog">#BLOG</a>
-  
-
       
     </div>
-    <h2 class="subtitle is-6">February 17, 2020</h2>
-    <h1 class="title">Hugo</h1>
+    <h2 class="subtitle is-6">February 22, 2020</h2>
+    <h1 class="title">emacs-org with ox-hugo</h1>
     
     <div class="content">
-      <p>this short summary on hugo setup.</p>
-<h2 id="hugo-for-blogger">Hugo for blogger</h2>
+      <p>emacs-org mode with ox-hugo export supported.</p>
+<h2 id="ox-hugo">ox-hugo</h2>
+<ul>
+<li>ox-hugo is the bridge from emacs-org to hugo&rsquo;s content.
+existing .org file with ox-hugo export to .md file and format translate;</li>
+</ul>
+<h3 id="parameters">parameters:</h3>
+<ul>
+<li><strong>HUGO_BASE_DIR</strong> (mandatory)
+defined the base folder for hugo export;</li>
+<li><strong>HUGO_SECTION</strong>
+hugo section
+By default, ox-hugo exports all the markdown files to <code>&lt;HUGO_BASE_DIR&gt;/content/posts/</code>.
+the content in this folder will be shown with <code>URL/</code> root path;
+for other section folders, can be accessed with <code>URL/SECTION-NAME</code>, under <code>&lt;HUGO_BASE_DIR&gt;/content/&lt;SECTION-NAME&gt;</code></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>(if there&rsquo;s another <code>content/post</code> exist, setup mannually, then Hugo server linked to content/post folder instead of content/posts;)
+with default setting of <strong>ox-hugo</strong>, we need to access with address like:<a href="http://localhost:1313/posts/">http://localhost:1313/posts/</a></p>
+<!-- raw HTML omitted -->
+<p>reference: <a href="https://ox-hugo.scripter.co/doc/hugo-section/">hugo-section</a></p>
+<ul>
+<li><strong>HUGO_WEIGHT</strong>: auto
+manual set page weight or <code>auto</code>;</li>
+<li><strong>HUGO_AUTO_SET_LASTMODE</strong>: t</li>
+<li><strong>PROPERTIES</strong>:
+have the oppotunity to export each blog based on org file subtree;
+<ul>
+<li>EXPORT_FILE_NAME: (mandatory)</li>
+<li>EXPORT_DATE: (can be exported based on SCHEDULED/CLOSED/DELAYED)</li>
+<li>EXPORT_HUGO_MENU:</li>
+<li>EXPORT_HUGO_DRAFT: t (can be exported based on TODO/DONE)</li>
+<li>EXPORT_STARTUP: content</li>
+<li>EXPORT_HUGO_CUSTOM_FRONT_MATTER: :mathjax true</li>
+</ul>
+</li>
+<li>HUGO: more
+remmended if hugo theme support &ldquo;read more&rdquo; feature;</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">here&#39;s summary or abstract;
+#+hugo: more
+here&#39;s details for next;
+</code></pre></div><ul>
+<li>Categary:
+can be exported with emacs org tag with <code>@</code> prefix</li>
+</ul>
+<h3 id="insert-images-and-auto-copy">insert images and auto copy</h3>
 <ul>
 <li>
-<p>installation on centos7
-update centos7 repos, <code>sudo vi /etc/yum.repos.d/hugo.repo</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[daftaupe-hugo]
-name=Copr repo for hugo owned by daftaupe
-baseurl=https://copr-be.cloud.fedoraproject.org/results/daftaupe/hugo/epel-7-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/daftaupe/hugo/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-</code></pre></div><p>refer to: <a href="https://unixetc.com/post/centos-install-hugo-via-repo/">https://unixetc.com/post/centos-install-hugo-via-repo/</a></p>
+<p>put images under BASE-DIR/static/images/*.png,
+update .org file with inserted code</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[/images/ddr_tRRD.png]]
+</code></pre></div><p><strong>NOT-RECOMMENDED</strong> for existing org structure;</p>
 </li>
 <li>
-<p>setup a new site called &ldquo;base&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  blogger hugo new site base
-Congratulations! Your new Hugo site is created in /var/vobs/blogger/base.
-
-Just a few more steps and you&#39;re ready to go:
-
-1. Download a theme into the same-named folder.
-Choose a theme from https://themes.gohugo.io/ or
-create your own with the &#34;hugo new theme &lt;THEMENAME&gt;&#34; command.
-2. Perhaps you want to add some content. You can add single files
-with &#34;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;.
-3. Start the built-in live server via &#34;hugo server&#34;.
-
-Visit https://gohugo.io/ for quickstart guide and full documentation.
-</code></pre></div></li>
-<li>
-<p>initial file structure</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  blogger tree base
-base
-├── archetypes
-│   └── default.md
-├── config.toml
-├── content
-├── data
-├── layouts
-├── static
-└── themes
-
-6 directories, 2 files
-
-</code></pre></div></li>
-<li>
-<p>download theme</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cd base/themes
-git clone https://github.com/vimux/mainroad
-</code></pre></div></li>
-<li>
-<p>create a new draft post</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  base hugo new post/readme.md
-/var/vobs/blogger/base/content/post/readme.md created
-➜  base cat content/post/readme.md
----
-title: &#34;Readme&#34;
-date: 2020-02-16T09:50:29+08:00
-draft: true
----
-</code></pre></div></li>
-<li>
-<p>update config.toml file,
-default config.toml like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">baseURL = &#34;http://example.org/&#34;
-languageCode = &#34;en-us&#34;
-title = &#34;My New Hugo Site&#34;
-</code></pre></div><p>according to the example, template from <a href="https://github.com/vimux/mainroad">mainroad</a>;</p>
+<p>direct link in .org file
+then ox-hugo will automatically copy image files to /static/ox-hugo/*.png
+other kinds of variants can be found in reference: <a href="https://ox-hugo.scripter.co/doc/image-links/">image-links</a></p>
 </li>
 <li>
-<p>run hugo serve to preview the blogger</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  base hugo server --buildDrafts
-                   | EN
--------------------+-----
-  Pages            |  8
-  Paginator pages  |  0
-  Non-page files   |  0
-  Static files     |  7
-  Processed images |  0
-  Aliases          |  3
-  Sitemaps         |  1
-  Cleaned          |  0
-
-Built in 23 ms
-Watching for changes in /var/vobs/blogger/base/{archetypes,content,data,layouts,static,themes}
-Watching for config changes in /var/vobs/blogger/base/config.toml
-Environment: &#34;development&#34;
-Serving pages from memory
-Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
-Press Ctrl+C to stop
-
+<p>examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[[~/Org/images/ddr_tWTR.png]]
+➜  static git:(master) ✗ ls ox-hugo
+ddr_tVREF_time.png  ddr_tWTR.png
+➜  static git:(master) ✗ ls images
+ddr_tRRD.png
 </code></pre></div></li>
+</ul>
+<h3 id="equations">equations</h3>
+<ul>
+<li>ox-hugo emacs auto-indent mode need to be careful,
+otherwise will impact the final mathjax function;
+please refer to: <a href="https://github.com/kaushalmodi/ox-hugo/issues/128">https://github.com/kaushalmodi/ox-hugo/issues/128</a></li>
+<li>update mathjax
+<ul>
 <li>
-<p>previewed website from address <a href="http://localhost:1313/">http://localhost:1313/</a></p>
+<p>update file <code>&lt;theme-name&gt;/layout/partial/mathjax.html</code>,
+to include refered javascript, in order to support equation reference, <a href="https://raw.githubusercontent.com/kaushalmodi/hugo-bare-min-theme/master/layouts/partials/mathjax.html">mathjax.html</a>.</p>
 </li>
 <li>
-<p>publish to public</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">hugo -t &lt;theme&gt;
-</code></pre></div><p>with this command, there will generate a <code>public/</code> folder,
-which expected to be deployed on remote server.</p>
+<p>meanwhile, create or modify <code>&lt;theme-name&gt;/static/js/mathjax-config.js</code>,
+to include refered js file: <a href="https://raw.githubusercontent.com/kaushalmodi/hugo-bare-min-theme/master/static/js/mathjax-config.js">mathjax-config.js</a></p>
+</li>
+<li>
+<p>insert the line inside <code>&lt;theme-name&gt;/layout/_default/single.html</code></p>
+<p><code>{{ partial &quot;mathjax.html&quot; . }}</code></p>
 </li>
 </ul>
+</li>
+<li>reference equations like: <code>\ref{eq:1}</code></li>
+</ul>
+<h3 id="auto-export">auto-export:</h3>
+<p><a href="https://ox-hugo.scripter.co/doc/auto-export-on-saving/">auto-export</a></p>
       
       <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/post/hugo-test-1/">Hugo</a></li>
+	
+</ul>
 </div>
       
     </div>
