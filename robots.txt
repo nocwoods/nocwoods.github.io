@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://nocwoods.github.io/sitemap.xml
