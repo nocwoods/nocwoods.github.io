@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Hugo | NOCWOODS</title>
+<title>bibtex emacs-org mode | NOCWOODS</title>
 
-<meta property='og:title' content='Hugo - NOCWOODS'>
-<meta property='og:description' content='this short summary on hugo setup.'>
-<meta property='og:url' content='https://nocwoods.github.io/post/hugo-test-1/'>
+<meta property='og:title' content='bibtex emacs-org mode - NOCWOODS'>
+<meta property='og:description' content='emacs-org mode used to manage citation based on bibtex.'>
+<meta property='og:url' content='https://nocwoods.github.io/post/emacs-org-bibtex/'>
 <meta property='og:site_name' content='NOCWOODS'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/38086ae3a0ae9f1c99c0e6ea69344c28?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='HUGO'><meta property='article:tag' content='BLOG'><meta property='article:published_time' content='2020-02-17T09:51:00&#43;08:00'/><meta property='article:modified_time' content='2020-02-29T16:41:20&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/38086ae3a0ae9f1c99c0e6ea69344c28?s=256'><meta property='article:section' content='Post'><meta property='article:tag' content='TEX'><meta property='article:published_time' content='2020-02-29T16:41:00&#43;08:00'/><meta property='article:modified_time' content='2020-02-29T16:41:20&#43;08:00'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@twitter'><meta name='twitter:creator' content='@twitter'>
 
 
 <link href="https://nocwoods.github.io/index.xml" rel="alternate" type="application/rss+xml" title="NOCWOODS" />
@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="https://nocwoods.github.io/post/hugo-test-1/">
+<link rel="canonical" href="https://nocwoods.github.io/post/emacs-org-bibtex/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -90,126 +90,194 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
       
-<a class="subtitle is-6" href="/tags/hugo">#HUGO</a>
+<a class="subtitle is-6" href="/tags/tex">#TEX</a>
 
 
-
-  
-  | <a class="subtitle is-6" href="/tags/blog">#BLOG</a>
-  
 
       
     </div>
-    <h2 class="subtitle is-6">February 17, 2020</h2>
-    <h1 class="title">Hugo</h1>
+    <h2 class="subtitle is-6">February 29, 2020</h2>
+    <h1 class="title">bibtex emacs-org mode</h1>
     
     <div class="content">
-      <p>this short summary on hugo setup.</p>
-<h2 id="hugo-for-blogger">Hugo for blogger</h2>
+      <p>emacs-org mode used to manage citation based on bibtex.</p>
+<h2 id="emacs-org-bibtex">emacs-org-bibtex</h2>
+<h3 id="bibex-with-latex">bibex with LaTex</h3>
 <ul>
 <li>
-<p>installation on centos7
-update centos7 repos, <code>sudo vi /etc/yum.repos.d/hugo.repo</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[daftaupe-hugo]
-name=Copr repo for hugo owned by daftaupe
-baseurl=https://copr-be.cloud.fedoraproject.org/results/daftaupe/hugo/epel-7-$basearch/
-type=rpm-md
-skip_if_unavailable=True
-gpgcheck=1
-gpgkey=https://copr-be.cloud.fedoraproject.org/results/daftaupe/hugo/pubkey.gpg
-repo_gpgcheck=0
-enabled=1
-</code></pre></div><p>refer to: <a href="https://unixetc.com/post/centos-install-hugo-via-repo/">https://unixetc.com/post/centos-install-hugo-via-repo/</a></p>
+<p>steps from scratch:</p>
+<ol>
+<li>
+<p>setup .bib file for all bibliography;</p>
 </li>
 <li>
-<p>setup a new site called &ldquo;base&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  blogger hugo new site base
-Congratulations! Your new Hugo site is created in /var/vobs/blogger/base.
-
-Just a few more steps and you&#39;re ready to go:
-
-1. Download a theme into the same-named folder.
-Choose a theme from https://themes.gohugo.io/ or
-create your own with the &#34;hugo new theme &lt;THEMENAME&gt;&#34; command.
-2. Perhaps you want to add some content. You can add single files
-with &#34;hugo new &lt;SECTIONNAME&gt;/&lt;FILENAME&gt;.&lt;FORMAT&gt;&#34;.
-3. Start the built-in live server via &#34;hugo server&#34;.
-
-Visit https://gohugo.io/ for quickstart guide and full documentation.
-</code></pre></div></li>
-<li>
-<p>initial file structure</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  blogger tree base
-base
-├── archetypes
-│   └── default.md
-├── config.toml
-├── content
-├── data
-├── layouts
-├── static
-└── themes
-
-6 directories, 2 files
-
-</code></pre></div></li>
-<li>
-<p>download theme</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cd base/themes
-git clone https://github.com/vimux/mainroad
-</code></pre></div></li>
-<li>
-<p>create a new draft post</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  base hugo new post/readme.md
-/var/vobs/blogger/base/content/post/readme.md created
-➜  base cat content/post/readme.md
----
-title: &#34;Readme&#34;
-date: 2020-02-16T09:50:29+08:00
-draft: true
----
-</code></pre></div></li>
-<li>
-<p>update config.toml file,
-default config.toml like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">baseURL = &#34;http://example.org/&#34;
-languageCode = &#34;en-us&#34;
-title = &#34;My New Hugo Site&#34;
-</code></pre></div><p>according to the example, template from <a href="https://github.com/vimux/mainroad">mainroad</a>;</p>
+<p>define bibliography-style shown in final PDF file;</p>
 </li>
 <li>
-<p>run hugo serve to preview the blogger</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">➜  base hugo server --buildDrafts
-                   | EN
--------------------+-----
-  Pages            |  8
-  Paginator pages  |  0
-  Non-page files   |  0
-  Static files     |  7
-  Processed images |  0
-  Aliases          |  3
-  Sitemaps         |  1
-  Cleaned          |  0
-
-Built in 23 ms
-Watching for changes in /var/vobs/blogger/base/{archetypes,content,data,layouts,static,themes}
-Watching for config changes in /var/vobs/blogger/base/config.toml
-Environment: &#34;development&#34;
-Serving pages from memory
-Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
-Press Ctrl+C to stop
-
+<p>follow below template to build .tex file;</p>
+</li>
+<li>
+<p>insert citation at place you needed</p>
+</li>
+<li>
+<p>generate and print out PDF file with additional option:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">latex mytex # generate document with question mark on unknown reference;
+bibtex mytex # link .bib and generate reference information;
+latex mytex # generate all correct citation;
+latex mytex # make sure everything is clean and smoothly;
+dvipdf mytex.dvi # PDF print out;
+</code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>step1: .bib file</p>
+<ul>
+<li>
+<p>search in google scholar or others</p>
+</li>
+<li>
+<p><a href="https://scholar.google.com">https://scholar.google.com</a></p>
+</li>
+<li>
+<p><a href="http://xueshu.baidu.com/">http://xueshu.baidu.com/</a></p>
+</li>
+<li>
+<p><a href="https://cn.bing.com/academic">https://cn.bing.com/academic</a></p>
+</li>
+<li>
+<p>and export as BibTex format,examples:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@article{glass1992the,
+title={The turn model for adaptive routing},
+author={Glass, Christopher J and Ni, Lionel M},
+volume={20},
+number={2},
+pages={278--287},
+year={1992}}
+@article{ni1993a,
+title={A survey of wormhole routing techniques in direct networks},
+author={Ni, Lionel M and Mckinley, Philip K},
+journal={IEEE Computer},
+volume={26},
+number={2},
+pages={492--506},
+year={1993}}
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>step2: template and format saved in .bst file;
+different article/conference could be different;</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plain</td>
+<td></td>
+</tr>
+<tr>
+<td>abbrv</td>
+<td></td>
+</tr>
+<tr>
+<td>unsrt</td>
+<td></td>
+</tr>
+<tr>
+<td>alpha</td>
+<td></td>
+</tr>
+<tr>
+<td>ieeetr</td>
+<td></td>
+</tr>
+<tr>
+<td>acm</td>
+<td></td>
+</tr>
+<tr>
+<td>siam</td>
+<td></td>
+</tr>
+<tr>
+<td>apalike</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>step3: .tex template</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org">% perpare package
+\usepackage{cite}
+% real paragraph
+.....
+here&#39;s the place refer to \cite{Wille1982}.
+....
+% BibTex Reference in last
+\bibliography{bibtex}
+\bibliographystyle{unsrt}
 </code></pre></div></li>
 <li>
-<p>previewed website from address <a href="http://localhost:1313/">http://localhost:1313/</a></p>
+<p>reference:</p>
+<ul>
+<li><a href="http://www.bibtex.org/Using/">http://www.bibtex.org/Using/</a></li>
+<li><a href="https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles">https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="bibtex-in-emacs-org--with-org-ref">bibtex in emacs-org (with org-ref)</h3>
+<ul>
+<li>
+<p>install org-ref from MELPA</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Alt-x list-packages
+org-ref
+</code></pre></div></li>
+<li>
+<p>setup default .bib file for search:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Alt-x customization-variable
+org-ref-default-bibliography
+</code></pre></div></li>
+<li>
+<p>update latex export with additional option:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#39;(TeX-command-extra-options &#34;--shell-escape --bibtex &#34;)
+</code></pre></div></li>
+<li>
+<p>update .org template like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#+LATEX_HEADER: \usepackage{cite}
+....
+insert citation here with &#34;C-c ]&#34;
+....
+bibliography:bibtex.bib
+bibliographystyle:unsrt
+</code></pre></div></li>
+<li>
+<p>insert citation</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&#34;&#34;C-c ]&#34; -&gt; &#34;&#34;C-n/p&#34; -&gt; &#34;TAB&#34; -&gt; &#34;f2&#34;&#34;
+</code></pre></div></li>
+<li>
+<p>also support html export;(without number)</p>
 </li>
 <li>
-<p>publish to public</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">hugo -t &lt;theme&gt;
-</code></pre></div><p>with this command, there will generate a <code>public/</code> folder,
-which expected to be deployed on remote server.</p>
+<p>reference</p>
+<ul>
+<li><a href="https://github.com/jkitchin/org-ref">https://github.com/jkitchin/org-ref</a></li>
+<li><a href="http://kitchingroup.cheme.cmu.edu/blog/2014/05/13/Using-org-ref-for-citations-and-references/">http://kitchingroup.cheme.cmu.edu/blog/2014/05/13/Using-org-ref-for-citations-and-references/</a></li>
+</ul>
 </li>
+</ul>
+<h3 id="example-of-org-ref">example of org-ref</h3>
+<ul>
+<li>
+<p>link example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">here&#39;s one example to insert cite:ni1993a.
+bibliography:bibtex.bib
+bibliographystyle:unsrt
+</code></pre></div></li>
 </ul>
       
       <div class="related">

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GIT on TECHWOODS</title>
+    <title>GIT on NOCWOODS</title>
     <link>https://nocwoods.github.io/tags/git/</link>
-    <description>Recent content in GIT on TECHWOODS</description>
+    <description>Recent content in GIT on NOCWOODS</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://nocwoods.github.io&#34;&gt;nocwoods&lt;/a&gt; 2020</copyright>
-    <lastBuildDate>Sat, 22 Feb 2020 17:07:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 16:38:00 +0800</lastBuildDate>
     
 	<atom:link href="https://nocwoods.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>github accessing with SSH</title>
+      <link>https://nocwoods.github.io/post/github-ssh-push/</link>
+      <pubDate>Sat, 29 Feb 2020 16:38:00 +0800</pubDate>
+      
+      <guid>https://nocwoods.github.io/post/github-ssh-push/</guid>
+      <description>&lt;p&gt;github accessing with SSH, and upload public-key.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>github-pages for blogs</title>
